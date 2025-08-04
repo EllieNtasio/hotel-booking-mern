@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import AllRooms from './pages/AllRooms';
 import RoomDetails from './pages/RoomDetails';
 import MyBookings from './pages/MyBookings';
+import HoterReg from './components/HoterReg';
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div>
       {!isOwnerPath && <Navbar />}
+      <HoterReg />
       <div className='min-h-[70vh]'>
         <Routes>
           <Route path='/' element={<Home />} />
