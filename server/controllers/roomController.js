@@ -1,6 +1,7 @@
 import {v2 as cloudinary} from "cloudinary";
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import { populate } from "dotenv";
 
 //New Room
 export const createRoom = async(req, res)=>{
@@ -30,7 +31,19 @@ export const createRoom = async(req, res)=>{
 }
 
 export const getRooms = async(req, res)=>{
-
+   try {
+    const rooms = (await Room.find({isAvailable: true})).populate({
+        path: 'hotel',
+        populate: {
+            path: 'owner',
+            select: 'image'
+        }
+    }).sort({createdAt: -1})
+    res.json({success: true, rooms});
+    
+   } catch (error) {
+    res.json({success: false, message: error.message});
+   }
 }
 
 export const getOwnerRooms = async(req, res)=>{
