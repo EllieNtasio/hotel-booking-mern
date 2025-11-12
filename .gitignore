@@ -1,4 +1,4 @@
-# Node modules σε οποιοδήποτε folder
+# Node modules in folder
 **/node_modules/
 
 # Env files
@@ -17,3 +17,4 @@ coverage/
 .vscode/
 
 node_modules
+
