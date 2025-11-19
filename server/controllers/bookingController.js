@@ -1,5 +1,5 @@
 import { response } from "express";
-import Booking from "../models/Booking"
+import Booking from "../models/Booking.js"
 import Room from "../models/Room.js";
 import Hotel from "../models/Hotel.js";
 
